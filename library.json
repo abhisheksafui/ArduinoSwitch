@@ -1,0 +1,12 @@
+{
+    "name": "ArduinoSwitch",
+    "keywords": "switch, arduino",
+    "description": "Arduino digital switch library",
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/abhisheksafui/ArduinoSwitch.git"
+    },
+    "frameworks": "arduino",
+    "platforms": "*"
+}
