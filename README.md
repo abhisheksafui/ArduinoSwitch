@@ -1,4 +1,4 @@
-# ArduinoList
+# ArduinoSwitch
 
 Arduino Library for easy management of digital Switch operations. Lets you create a 
 switch with  
@@ -17,3 +17,7 @@ your switch debounce time.
 
 ACTIVE_HIGH switches MUST be pulled down by external resistor. 
 For ACTIVE_LOW switches you may skip as internal pullup is used.
+
+Required Libraries:
+
+https://github.com/abhisheksafui/ArduinoList.git
