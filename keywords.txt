@@ -1,2 +1,2 @@
-ArduinoSwitch KEYWORD1
-pressed       KEYWORD2
+ArduinoSwitch	KEYWORD1
+pressed	KEYWORD2
