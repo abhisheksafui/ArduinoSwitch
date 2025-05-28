@@ -25,17 +25,9 @@
 #ifndef __ARDUINOSWITCH_H__
 #define __ARDUINOSWITCH_H__
 
+#include <Arduino.h>
 #include <ArduinoList.h>
-
-#if 1
-
-enum class ActiveMode
-{
-
-	ACTIVE_HIGH,
-	ACTIVE_LOW,
-
-};
+#include <Stream.h>
 
 enum class ArduinoSwitchFsmState
 {
@@ -48,7 +40,16 @@ enum class ArduinoSwitchFsmState
 
 class ArduinoSwitch
 {
+public:
+	enum class ActiveMode
+	{
 
+		ACTIVE_HIGH,
+		ACTIVE_LOW,
+
+	};
+
+private:
 	static ArduinoList<ArduinoSwitch *> _switches;
 	static int DEBOUNCE_TIME_MS;
 	static int REPEATED_PRESS_INTERVAL_MS;
@@ -217,5 +218,4 @@ int ArduinoSwitch::DEBOUNCE_TIME_MS = 100;
 int ArduinoSwitch::REPEATED_PRESS_INTERVAL_MS = 700;
 Stream *ArduinoSwitch::debugPort = NULL;
 
-#endif
 #endif
