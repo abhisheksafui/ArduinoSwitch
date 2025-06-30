@@ -51,8 +51,8 @@ public:
 
 private:
 	static ArduinoList<ArduinoSwitch *> _switches;
-	static int DEBOUNCE_TIME_MS;
-	static int REPEATED_PRESS_INTERVAL_MS;
+	static unsigned long DEBOUNCE_TIME_MS;
+	static unsigned long REPEATED_PRESS_INTERVAL_MS;
 	static Stream *debugPort;
 	/**
 	    ArduinoSwitch initialisation variables
@@ -66,7 +66,7 @@ private:
 	   Runtime variables
 	*/
 	ArduinoSwitchFsmState _state;
-	unsigned int _state_timestamp;
+	unsigned long _state_timestamp;
 
 	/**
 	   ArduinoSwitch private methods
@@ -78,13 +78,13 @@ private:
 		return _state;
 	}
 
-	unsigned int stateUpdateTime()
+	unsigned long stateUpdateTime()
 	{
 		return _state_timestamp;
 	}
 
 public:
-	ArduinoSwitch(int pin, ActiveMode mode, std::function<void(void *)> call, void *arg = nullptr) : _callback(call), _callbackArg(arg), _pin(pin), _mode(mode)
+	ArduinoSwitch(int pin, ActiveMode mode, std::function<void(void *)> call, void *arg = nullptr) :  _mode(mode), _pin(pin),  _callback(call), _callbackArg(arg)
 	{
 
 		_switches.push_back(this);
@@ -214,8 +214,8 @@ void ArduinoSwitch::updateInstance()
 }
 
 ArduinoList<ArduinoSwitch *> ArduinoSwitch::_switches;
-int ArduinoSwitch::DEBOUNCE_TIME_MS = 100;
-int ArduinoSwitch::REPEATED_PRESS_INTERVAL_MS = 700;
+unsigned long ArduinoSwitch::DEBOUNCE_TIME_MS = 100;
+unsigned long ArduinoSwitch::REPEATED_PRESS_INTERVAL_MS = 700;
 Stream *ArduinoSwitch::debugPort = NULL;
 
 #endif
